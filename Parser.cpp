@@ -37,6 +37,9 @@ void Parser::parseInput()
 			parsePickStartingRegion();
 		else if (inputType == "go")
 			parseGo();
+		//TODO use round for fogRounds counting
+		else if (inputType == "Round")
+			std::cerr << "Round recognized" << std::endl;
 		else
 		{
 			std::string line;

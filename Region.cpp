@@ -10,6 +10,7 @@ Region::Region()
 	, superRegion(0)
 	, owner(NEUTRAL)
 	, armies(0)
+	, fogRounds(0)
 {
 }
 
@@ -18,6 +19,7 @@ Region::Region(const int& pId, const int& pSuperRegion)
 	, superRegion(pSuperRegion)
 	, owner(NEUTRAL)
 	, armies(0)
+	, fogRounds(0)
 {
 }
 

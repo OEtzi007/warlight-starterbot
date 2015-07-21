@@ -4,6 +4,7 @@
 
 //project
 #include "Bot.h"
+#include "ConquerPlan.h"
 
 //tools
 #include "tools/StringManipulation.h"
@@ -26,12 +27,34 @@ void Bot::playGame()
 void Bot::pickStartingRegion()
 {
 	// START HERE!
-	std::cout << startingRegionsreceived.front() << std::endl;
+	int randStartRegion=std::rand() % startingRegionsreceived.size();
+	std::cout << startingRegionsreceived[randStartRegion] << std::endl;
+}
+
+bool planComparison(Plan *lhs, Plan* rhs){
+	return (*lhs)<(*rhs);
+}
+
+void Bot::doPlanning() {
+	Plan* ptr=0;
+	while(plans.size()>0){
+		ptr=plans.back();
+		plans.pop_back();
+		delete ptr;
+	}
+	plans.clear();
+	typeof(superRegions.begin()) srit;
+	for(srit=superRegions.begin();srit!=superRegions.end();srit++){
+		plans.push_back(new ConquerPlan(*srit));
+	}
+
+	std::sort(plans.begin(),plans.end(),planComparison);
 }
 
 void Bot::placeArmies()
 {
 	// START HERE!
+	// TODO use plans to determine placeArmies
 	unsigned region = std::rand() % ownedRegions.size();
 	std::cout << botName << " place_armies " << ownedRegions[region] << " " << armiesLeft
 			<< std::endl;
@@ -41,6 +64,7 @@ void Bot::placeArmies()
 void Bot::makeMoves()
 {
 	// START HERE!
+	// TODO use plans to determine makeMoves
 	/// Output No moves when you have no time left or do not want to commit any moves.
 	// std::cout << "No moves "  << std::endl;
 	/// Anatomy of a single move
@@ -174,6 +198,7 @@ void Bot::executeAction()
 	}
 	else if (phase == Bot::PLACE_ARMIES)
 	{
+		doPlanning();
 		placeArmies();
 	}
 	else if (phase == Bot::ATTACK_TRANSFER)

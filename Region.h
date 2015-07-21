@@ -31,6 +31,8 @@ private:
 	int superRegion;
 	Player owner;
 	int armies;
+	//TODO count correctly fogRounds (after Test of "Round" input from engine)
+	int fogRounds;
 };
 
 #endif // REGION_H

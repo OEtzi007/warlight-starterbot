@@ -13,6 +13,7 @@
 #include "Parser.h"
 #include "Region.h"
 #include "SuperRegion.h"
+#include "Plan.h"
 
 
 
@@ -31,6 +32,7 @@ public:
 	void playGame();    ///< plays a single game of Warlight
 
 	void pickStartingRegion();
+	void doPlanning();
 	void placeArmies();
 	void makeMoves();   ///< makes moves for a single turn
 
@@ -98,6 +100,9 @@ private:
 	std::vector<unsigned> opponentStartingRegions;
 	std::vector<int> ownedRegions;
 	std::vector<int> wastelands;
+
+	std::vector<Plan*> plans;//< list of plans that could be executed
+
 	int armiesLeft;
 	int timebank;
 	int timePerMove;
