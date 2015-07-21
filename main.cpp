@@ -4,6 +4,7 @@
 
 //project
 #include "Bot.h"
+#include "main.h"
 
 int main(int /*argc*/, char ** /*argv[] */)
 {
@@ -13,8 +14,9 @@ int main(int /*argc*/, char ** /*argv[] */)
 	try
 	{
 #endif
-		Bot bot;
-		bot.playGame();
+		Bot* ownBot=new Bot();
+		ownBot->playGame();
+		delete ownBot;
 #ifndef STARTERBOT_DEBUG
 	} catch (std::exception& ex)
 	{

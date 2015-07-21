@@ -19,3 +19,11 @@ void SuperRegion::addRegion(const int& region)
 {
 	regions.push_back(region);
 }
+
+const std::vector<int>& SuperRegion::getRegions() const {
+	return regions;
+}
+
+int SuperRegion::getReward() const {
+	return reward;
+}

@@ -13,4 +13,8 @@ enum Player {
 	NEUTRAL
 };
 
+class Bot;
+
+extern Bot* ownBot;
+
 #endif

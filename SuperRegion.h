@@ -18,6 +18,9 @@ public:
 	void addRegion(const int& region);
 	size_t size() { return regions.size(); }
 
+	const std::vector<int>& getRegions() const;
+	int getReward() const;
+
 private:
 	std::vector<int> regions;
 	int reward;

@@ -6,6 +6,7 @@
  */
 
 #include "ConquerPlan.h"
+#include "SuperRegion.h"
 
 ConquerPlan::ConquerPlan(SuperRegion &sr):target(sr) {
 	// TODO Auto-generated constructor stub
@@ -18,6 +19,8 @@ ConquerPlan::~ConquerPlan() {
 
 // TODO implement the ConquerPlan
 std::vector<double> ConquerPlan::getPriority() const {
+	double val=-target.getReward();
+
 }
 
 std::vector<std::pair<int, int> > ConquerPlan::getNeededResources() const {
