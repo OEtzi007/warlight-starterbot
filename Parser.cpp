@@ -37,16 +37,12 @@ void Parser::parseInput()
 			parsePickStartingRegion();
 		else if (inputType == "go")
 			parseGo();
-		//TODO use round for fogRounds counting
-		else if (inputType == "Round")
-			std::cerr << "Round recognized" << std::endl;
 		else
 		{
 			std::string line;
 			getline(std::cin, line);
 			std::cerr  << inputType << " " << line << std::endl;
 		}
-
 		theBot->executeAction();
 	}
 }
@@ -172,7 +168,7 @@ void Parser::parseGo()
 		theBot->setPhase(Bot::ATTACK_TRANSFER);
 		return;
 	}
-	throw std::invalid_argument("Cannot handle " + phase + "correctly");
+	throw std::invalid_argument("Cannot handle " + phase + " correctly");
 }
 
 void Parser::parseSuperRegions()

@@ -16,7 +16,7 @@ Plan::~Plan() {
 	// TODO Auto-generated destructor stub
 }
 
-bool operator< (const Plan &lhs,const Plan &rhs){
+bool operator<(const Plan &lhs,const Plan &rhs){
 	std::vector<double> lhsP, rhsP;
 	lhsP=lhs.getPriority();
 	rhsP=rhs.getPriority();

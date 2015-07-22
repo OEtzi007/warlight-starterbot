@@ -20,7 +20,7 @@ ConquerPlan::~ConquerPlan() {
 // TODO implement the ConquerPlan
 std::vector<double> ConquerPlan::getPriority() const {
 	double val=-target.getReward();
-
+	return std::vector<double>(1,val);
 }
 
 std::vector<std::pair<int, int> > ConquerPlan::getNeededResources() const {

@@ -1,6 +1,7 @@
 // stl
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 //project
 #include "Bot.h"
@@ -31,7 +32,7 @@ void Bot::pickStartingRegion()
 	std::cout << startingRegionsreceived[randStartRegion] << std::endl;
 }
 
-bool planComparison(Plan *lhs, Plan* rhs){
+bool comparePlans(Plan* lhs, Plan* rhs){
 	return (*lhs)<(*rhs);
 }
 
@@ -43,12 +44,12 @@ void Bot::doPlanning() {
 		delete ptr;
 	}
 	plans.clear();
-	typeof(superRegions.begin()) srit;
+	std::vector<SuperRegion>::iterator srit;
 	for(srit=superRegions.begin();srit!=superRegions.end();srit++){
 		plans.push_back(new ConquerPlan(*srit));
-	}
 
-	std::sort(plans.begin(),plans.end(),planComparison);
+	}
+	std::sort(plans.begin(),plans.end(),comparePlans);
 }
 
 void Bot::placeArmies()

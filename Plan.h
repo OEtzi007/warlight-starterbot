@@ -21,6 +21,6 @@ public:
 	virtual std::vector<std::pair<std::pair<int,int>, int> > moveArmies() const=0;//< returns list of region to region, army moves required for the plan
 };
 
-bool operator< (const Plan &lhs,const Plan &rhs);
+bool operator<(const Plan &lhs,const Plan &rhs);
 
 #endif /* PLAN_H_ */
